@@ -1,6 +1,7 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
 import PropTypes, { arrayOf } from 'prop-types';
+import { Item, List, Text, Button } from './ContactList.styled';
 
 export const ContactList = ({ contacts, removeContact }) => {
   const handleRemoveContact = id => {
@@ -8,16 +9,16 @@ export const ContactList = ({ contacts, removeContact }) => {
   };
 
   return (
-    <ul>
+    <List>
       {contacts.map(contact => (
-        <li key={nanoid()}>
-          <p>{contact.name}</p>
-          <button onClick={() => handleRemoveContact(contact.id)}>
+        <Item key={nanoid()}>
+          <Text>{contact.name}</Text>
+          <Button onClick={() => handleRemoveContact(contact.id)}>
             &times;
-          </button>
-        </li>
+          </Button>
+        </Item>
       ))}
-    </ul>
+    </List>
   );
 };
 

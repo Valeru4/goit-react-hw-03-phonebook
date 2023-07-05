@@ -1,4 +1,5 @@
-import PropTypes from 'prop-types'; // ES6
+import PropTypes from 'prop-types';
+import { Container, Heading, Input } from './Filter.styled';
 
 export const Filter = props => {
   const onChange = event => {
@@ -7,10 +8,10 @@ export const Filter = props => {
   };
 
   return (
-    <div>
-      <p>Find contacts by name</p>
-      <input name="filter" type="text" onChange={onChange} />
-    </div>
+    <Container>
+      <Heading>Find contacts by name</Heading>
+      <Input name="filter" type="text" onChange={onChange} />
+    </Container>
   );
 };
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'; // ES6
+import PropTypes from 'prop-types';
+import { Form, Label, Input, Button } from './ContactForm.styled';
 
 export class ContactForm extends Component {
   state = {
@@ -33,9 +34,9 @@ export class ContactForm extends Component {
   render() {
     return (
       <>
-        <form onSubmit={this.handleSubmit}>
-          <h2>Name</h2>
-          <input
+        <Form onSubmit={this.handleSubmit}>
+          <Label>Name</Label>
+          <Input
             type="text"
             name="name"
             value={this.state.name}
@@ -45,8 +46,8 @@ export class ContactForm extends Component {
             required
           />
 
-          <h3>Number</h3>
-          <input
+          <Label>Number</Label>
+          <Input
             type="tel"
             name="number"
             value={this.state.number}
@@ -55,8 +56,8 @@ export class ContactForm extends Component {
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
           />
-          <button type="submit">Add contact</button>
-        </form>
+          <Button type="submit">Add contact</Button>
+        </Form>
       </>
     );
   }
