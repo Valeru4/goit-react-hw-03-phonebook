@@ -47,6 +47,15 @@ export class App extends Component {
     return filteredContacts;
   };
 
+  removeContact = id => {
+    const updatedContacts = this.state.contacts.filter(
+      contact => contact.id !== id
+    );
+    this.setState({
+      contacts: updatedContacts,
+    });
+  };
+
   render() {
     const filteredContacts = this.getFilteredContacts();
     return (
@@ -60,7 +69,7 @@ export class App extends Component {
         {filteredContacts.length > 0 && (
           <ContactList
             contacts={filteredContacts}
-            // onRemoveContact={this.removeContact}
+            removeContact={this.removeContact}
           />
         )}
       </div>

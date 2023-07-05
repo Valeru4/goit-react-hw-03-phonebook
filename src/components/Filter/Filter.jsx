@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'; // ES6
+
 export const Filter = props => {
   const onChange = event => {
     const filter = event.target.value;
@@ -10,4 +12,8 @@ export const Filter = props => {
       <input name="filter" type="text" onChange={onChange} />
     </div>
   );
+};
+
+Filter.propTypes = {
+  changeFilter: PropTypes.func.isRequired,
 };

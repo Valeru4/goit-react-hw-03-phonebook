@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'; // ES6
 
 export class ContactForm extends Component {
   state = {
@@ -23,6 +24,10 @@ export class ContactForm extends Component {
     };
     // console.log(contactsData);
     this.props.addContact(contactsData);
+    this.setState({
+      name: '',
+      number: '',
+    });
   };
 
   render() {
@@ -56,3 +61,9 @@ export class ContactForm extends Component {
     );
   }
 }
+
+ContactForm.propTypes = {
+  AddContact: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+};
