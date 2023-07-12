@@ -18,13 +18,13 @@ export class ContactForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log('submit');
-    const contactsData = {
-      ...this.state,
-      number: Number(this.state.number),
-    };
+    // console.log('submit');
+    // const contactsData = {
+    //   ...this.state,
+    //   number: Number(this.state.number),
+    // };
     // console.log(contactsData);
-    this.props.addContact(contactsData);
+    this.props.addContact({ ...this.state });
     this.setState({
       name: '',
       number: '',

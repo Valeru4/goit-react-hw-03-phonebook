@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import { Container, Heading, Input } from './Filter.styled';
 
-export const Filter = props => {
+export const Filter = ({ changeFilter }) => {
   const onChange = event => {
     const filter = event.target.value;
-    props.changeFilter(filter);
+    changeFilter(filter);
   };
 
   return (

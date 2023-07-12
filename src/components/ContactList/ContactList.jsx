@@ -4,18 +4,12 @@ import PropTypes, { arrayOf } from 'prop-types';
 import { Item, List, Text, Button } from './ContactList.styled';
 
 export const ContactList = ({ contacts, removeContact }) => {
-  const handleRemoveContact = id => {
-    removeContact(id);
-  };
-
   return (
     <List>
       {contacts.map(contact => (
         <Item key={nanoid()}>
           <Text>{contact.name}</Text>
-          <Button onClick={() => handleRemoveContact(contact.id)}>
-            &times;
-          </Button>
+          <Button onClick={() => removeContact(contact.id)}>&times;</Button>
         </Item>
       ))}
     </List>

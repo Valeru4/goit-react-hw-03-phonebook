@@ -18,7 +18,7 @@ export class App extends Component {
 
   addContact = contactsData => {
     const newNameExists = this.state.contacts.some(
-      contact => contact.name === contactsData.name
+      contact => contact.name.toLowerCase() === contactsData.name
     );
 
     if (newNameExists) {
@@ -49,12 +49,9 @@ export class App extends Component {
   };
 
   removeContact = id => {
-    const updatedContacts = this.state.contacts.filter(
-      contact => contact.id !== id
-    );
-    this.setState({
-      contacts: updatedContacts,
-    });
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== id),
+    }));
   };
 
   render() {
