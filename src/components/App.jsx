@@ -54,6 +54,19 @@ export class App extends Component {
     }));
   };
 
+  componentDidMount() {
+    const strContacts = localStorage.getItem('contacts');
+    const contactsLocalStorage = JSON.parse(strContacts) || [];
+    this.setState({ contacts: contactsLocalStorage });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.contacts.length !== this.state.contacts.length) {
+      const stringifidContacts = JSON.stringify(this.state.contacts);
+      localStorage.setItem('contacts', stringifidContacts);
+    }
+  }
+
   render() {
     const filteredContacts = this.getFilteredContacts();
     return (
