@@ -31,7 +31,9 @@ export class App extends Component {
 
   addContact = contactsData => {
     const newNameExists = this.state.contacts.some(
-      contact => contact.name.toLowerCase() === contactsData.name
+      contact =>
+        contact.name.trim().toLowerCase() ===
+        contactsData.name.trim().toLowerCase()
     );
 
     if (newNameExists) {
